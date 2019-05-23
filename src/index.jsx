@@ -1,21 +1,23 @@
 import React from 'react'
 import { render } from 'react-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
+import Home from './components/Home'
 
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <BrowserRouter>
         <Header />
         <main id="main">
           <div id="main-content">
-            <p>Hello, toolbox.js!</p>
+            <Route path="/" exact component={Home} />
           </div>
         </main>
         <Footer />
-      </div>
+      </BrowserRouter>
     )
   }
 }
