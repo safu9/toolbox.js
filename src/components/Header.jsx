@@ -1,8 +1,7 @@
 import React from 'react'
-import {render} from 'react-dom'
 
 class Header extends React.Component {
-  render () {
+  render() {
     return (
       <header id="header">
         <div id="header-content">

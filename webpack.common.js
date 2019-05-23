@@ -2,8 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-const src  = path.resolve(__dirname, 'src')
-const static = path.resolve(__dirname, 'static')
+const src = path.resolve(__dirname, 'src')
 const dist = path.resolve(__dirname, 'dist')
 
 module.exports = {
@@ -15,6 +14,15 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        enforce: "pre",
+        test: /\.jsx$/,
+        exclude: /node_modules/,
+        loader: "eslint-loader",
+        options: {
+          fix: true
+        }
+      },
       {
         test: /\.jsx$/,
         exclude: /node_modules/,
@@ -32,9 +40,9 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       {
-        from: static,
+        from: path.resolve(__dirname, 'static'),
         to: dist + '/static'
       }
-    ]),
+    ])
   ]
 }

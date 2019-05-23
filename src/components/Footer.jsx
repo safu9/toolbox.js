@@ -1,8 +1,7 @@
 import React from 'react'
-import {render} from 'react-dom'
 
 class Footer extends React.Component {
-  render () {
+  render() {
     return (
       <footer id="footer">
         <div id="footer-content">
